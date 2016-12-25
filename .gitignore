@@ -61,5 +61,5 @@ target/
 .idea/
 
 # Config/Log Files
-config.txt
+config.py
 log.txt
