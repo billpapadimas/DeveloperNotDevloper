@@ -28,6 +28,7 @@ class RogueOneBot(object):
 
             if "rouge one" in comment.body.lower():
                 already_replied = False
+                comment.refresh()
                 for reply in comment.replies:
                     print("Reply author:", reply.author)
                     if reply.author == self.username:
@@ -44,11 +45,10 @@ class RogueOneBot(object):
                    'Hi, ', author, ', I noticed you typed "Rouge One". The correct spelling is "Rogue One".\n\n' +
                    'May the force be with you!\n\n' +
                    '---\n\n' +
-                   '^I\'m ^just ^a ^hard ^working ^bot ^created ^by ^/u/BlckJesus. ^| ' +
+                   '^I\'m ^just ^a ^hard ^working ^bot ^created ^by ^/u/BlckJesus ^| ' +
                    '[^Github ^Link](https://github.com/phil-harmoniq/RogueOneBot)')
         message = "".join(message)
 
-        print(message)
         print()
         self.write_to_log(author, comment.body)
         self.reply_to_comment(comment, message)
