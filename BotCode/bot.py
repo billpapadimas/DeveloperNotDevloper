@@ -1,4 +1,5 @@
 import praw
+import time
 from config import my_user_agent, my_client_id, my_client_secret, my_username, my_password
 
 
@@ -58,5 +59,7 @@ class RogueOneBot(object):
 
     def write_to_log(self, author, comment_body):
         with open("log.txt", "a") as file:
-            file.write("Misspelling detected from " + author + "\n")
+            clock = time.strftime("%H:%M:%S")
+            day = time.strftime("%m/%d/%Y")
+            file.write("Misspelling detected from {} at {} - {}\n".format(author, clock, day))
             file.write('"' + comment_body + '"\n\n')
