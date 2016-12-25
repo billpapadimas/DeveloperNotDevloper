@@ -23,35 +23,38 @@ class RogueOneBot(object):
     def run(self):
         for comment in self.comment_stream:
             print("New comment by:", comment.author.name)
+            print(comment.body)
+            print()
 
             if "rouge one" in comment.body.lower():
                 already_replied = False
                 for reply in comment.replies:
+                    print("Reply author:", reply.author)
                     if reply.author == self.username:
                         already_replied = True
 
-                if not already_replied:
+                if not already_replied and comment.author != self.username:
                     print("---Misspelling Detected---")
                     self.correct_spelling(comment)
 
-            print(comment.body)
-            print()
-
     def correct_spelling(self, comment):
         author = "/u/" + comment.author.name
-        message = ('###\*sad beep\*\n\n'
-                   '---\n\n'
-                   'Hi,', author, 'I noticed you typed "Rouge One". The correct spelling is "Rogue One".\n\n'
-                   'May the force be with you!\n\n'
-                   '---\n\n'
-                   '^I\'m ^just ^a ^hard ^working ^bot ^created ^by ^/u/BlckJesus. ^| '
+        message = ('###\*sad beep\*\n\n' +
+                   '---\n\n' +
+                   'Hi, ', author, ', I noticed you typed "Rouge One". The correct spelling is "Rogue One".\n\n' +
+                   'May the force be with you!\n\n' +
+                   '---\n\n' +
+                   '^I\'m ^just ^a ^hard ^working ^bot ^created ^by ^/u/BlckJesus. ^| ' +
                    '[^Github ^Link](https://github.com/phil-harmoniq/RogueOneBot)')
+        message = "".join(message)
 
         print(message)
+        print()
         self.write_to_log(author, comment.body)
+        self.reply_to_comment(comment, message)
 
-    def reply_to_comment(self):
-        pass
+    def reply_to_comment(self, comment, message):
+        comment.reply(message)
 
     def write_to_log(self, author, comment_body):
         with open("log.txt", "a") as file:
