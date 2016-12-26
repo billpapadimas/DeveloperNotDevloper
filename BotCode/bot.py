@@ -1,6 +1,6 @@
 import praw
 import time
-from config import my_user_agent, my_client_id, my_client_secret, my_username, my_password
+from config import my_user_agent, my_client_id, my_client_secret, my_username, my_password, blacklist
 
 
 class RogueOneBot(object):
@@ -19,11 +19,10 @@ class RogueOneBot(object):
                                   password=self.password)
         self.sw_subreddit = self.reddit.subreddit("StarWars")
         self.comment_stream = self.sw_subreddit.stream.comments()
-        self.hot_submissions = []
 
     def run(self):
         for comment in self.comment_stream:
-            print("New comment by:", comment.author.name)
+            print("New comment by:", comment.author)
             print(comment.body)
             print()
 
@@ -35,7 +34,7 @@ class RogueOneBot(object):
                     if reply.author == self.username:
                         already_replied = True
 
-                if not already_replied and comment.author != self.username:
+                if not already_replied and comment.author != self.username and comment.author not in blacklist:
                     print("---Misspelling Detected---")
                     self.correct_spelling(comment)
 
