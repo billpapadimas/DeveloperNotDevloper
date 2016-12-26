@@ -40,12 +40,12 @@ class RogueOneBot(object):
 
     def correct_spelling(self, comment):
         author = "/u/" + comment.author.name
-        message = ('###\*sad beep\*\n\n' +
+        message = ('###[\*sad beep\*](http://i.imgur.com/NM8216j.gifv)\n\n' +
                    '---\n\n' +
                    'Hi, ', author, ', I noticed you typed "Rouge One". The correct spelling is "Rogue One".\n\n' +
                    'May the force be with you!\n\n' +
                    '---\n\n' +
-                   '^I\'m ^just ^a ^hard ^working ^bot ^created ^by ^/u/BlckJesus ^| ' +
+                   '^I\'m ^just ^a ^hard ^working ^droid ^created ^by ^/u/BlckJesus ^| ' +
                    '[^Github ^Link](https://github.com/phil-harmoniq/RogueOneBot)')
         message = "".join(message)
 
