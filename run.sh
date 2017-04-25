@@ -1,3 +1,3 @@
 #! /usr/bin/env bash
 
-nohup python BotCode
+nohup python3 BotCode
