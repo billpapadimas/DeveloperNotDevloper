@@ -17,8 +17,8 @@ class RogueOneBot(object):
                                   client_secret=self.client_secret,
                                   username=self.username,
                                   password=self.password)
-        self.sw_subreddit = self.reddit.subreddit("StarWars")
-        self.comment_stream = self.sw_subreddit.stream.comments()
+        self.sw_subreddits = self.reddit.subreddit("PrequelMemes+SequelMemes++OTMemes+anthologymemes+bankingclanmemes+TradeFederationMemes")
+        self.comment_stream = self.sw_subreddits.stream.comments()
 
     def run(self):
         for comment in self.comment_stream:
@@ -40,7 +40,7 @@ class RogueOneBot(object):
 
     def correct_spelling(self, comment):
         author = "/u/" + comment.author.name
-        message = ('###[\*sad beep\*](http://i.imgur.com/NM8216j.gifv)\n\n' +
+        message = ('###[\*sad beep\*](http://i.imgur.com/ISeTC4b.gifv)\n\n' +
                    '---\n\n' +
                    'Hi, ', author, ', I noticed you typed "Rouge One". The correct spelling is "Rogue One".\n\n' +
                    'May the force be with you!\n\n' +
