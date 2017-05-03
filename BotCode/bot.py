@@ -22,11 +22,15 @@ class RogueOneBot(object):
 
     def run(self):
         for comment in self.comment_stream:
-            print("New comment by:", comment.author)
+            clock = time.strftime("%H:%M:%S")
+            day = time.strftime("%Y/%m/%d")
+            print("{} - {} New comment by: {}".format(day, clock, comment.author))
             print(comment.body)
             print()
 
-            if "rouge one" in comment.body.lower():
+            comment_lower = comment.body.lower()
+
+            if "rouge one" in comment_lower and "rogue one" not in comment_lower:
                 already_replied = False
                 comment.refresh()
                 for reply in comment.replies:

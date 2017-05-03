@@ -63,3 +63,6 @@ target/
 # Config/Log Files
 config.py
 log.txt
+
+# Unknown swap file
+*.swp
