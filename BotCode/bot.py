@@ -17,7 +17,7 @@ class RogueOneBot(object):
                                   client_secret=self.client_secret,
                                   username=self.username,
                                   password=self.password)
-        self.sw_subreddits = self.reddit.subreddit("PrequelMemes+SequelMemes++OTMemes+anthologymemes+bankingclanmemes+TradeFederationMemes")
+        self.sw_subreddits = self.reddit.subreddit("PrequelMemes+SequelMemes+OTMemes+anthologymemes+bankingclanmemes+TradeFederationMemes")
         self.comment_stream = self.sw_subreddits.stream.comments()
 
     def run(self):

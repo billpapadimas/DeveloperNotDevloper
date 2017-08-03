@@ -3,12 +3,14 @@ import time
 
 bot_count = 0
 wait_time = 30
-maximum_tries = 10
+maximum_tries = 100
 
 
 def new_bot(bot_count):
     bot_count += 1
     print("Spawned new bot: #{}".format(bot_count))
+    
+    # Pokemon Exception Handling - Gotta catch 'em all!
     try:
         bot = RogueOneBot()
         bot.run()
