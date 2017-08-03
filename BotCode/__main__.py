@@ -9,6 +9,8 @@ maximum_tries = 10
 def new_bot(bot_count):
     bot_count += 1
     print("Spawned new bot: #{}".format(bot_count))
+    
+    # Pokemon Exception Handling - Gotta catch 'em all!
     try:
         bot = RogueOneBot()
         bot.run()
