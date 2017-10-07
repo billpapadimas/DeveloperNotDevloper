@@ -17,7 +17,7 @@ class DeveloperNotDevloper(object):
                                   client_secret=self.client_secret,
                                   username=self.username,
                                   password=self.password)
-        self.sw_subreddits = self.reddit.subreddit("Programming+Python+ProgrammingHumor+learnpython+learnprogramming+dailyprogrammer+test")
+        self.sw_subreddits = self.reddit.subreddit("Programming+Python+ProgrammingHumor+learnpython+learnprogramming+dailyprogrammer")
         self.comment_stream = self.sw_subreddits.stream.comments()
 
     def run(self):
