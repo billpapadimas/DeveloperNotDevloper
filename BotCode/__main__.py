@@ -1,3 +1,7 @@
+#! /usr/bin/python3
+
+import traceback
+
 from bot import DeveloperNotDevloper
 import time
 
@@ -16,6 +20,7 @@ def new_bot(bot_count):
         bot.run()
     except Exception as e:
         print(e)
+        print(traceback.format_exc())
         time.sleep(wait_time)
         if bot_count < maximum_tries:
             new_bot(bot_count)

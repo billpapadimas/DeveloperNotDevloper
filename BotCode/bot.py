@@ -38,18 +38,18 @@ class DeveloperNotDevloper(object):
                     if reply.author == self.username:
                         already_replied = True
 
-                if not already_replied and comment.author != self.username and comment.author not in blacklist:
+                if not already_replied and str(comment.author) != self.username and str(comment.author) not in blacklist:
                     print("---Misspelling Detected---")
                     self.correct_spelling(comment)
 
     def correct_spelling(self, comment):
         author = "/u/" + comment.author.name
-        message = ('###[\*sad beep\*](http://i.imgur.com/ISeTC4b.gifv)\n\n' +
+        message = ('###\*sad beep\*\n\n' +
                    '---\n\n' +
                    'Hi, ', author, ', I noticed you typed "devloper". The correct spelling is "developer".\n\n' +
                    'Please don\'t do that!\n\n' +
                    '---\n\n' +
-                   '^I\'m ^just ^a ^hard ^working ^droid ^created ^by ^/u/BlckJesus and forked by OverOverOverlord ^| ' +
+                   '^I\'m ^just ^a ^hard ^working ^droid ^created ^by ^/u/BlckJesus ^and ^forked ^by ^/u/OverOverOverlord ^| ' +
                    '[^Github ^Link](https://github.com/billpapadimas/DeveloperNotDevloper)')
         message = "".join(message)
 
