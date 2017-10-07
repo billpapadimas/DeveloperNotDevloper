@@ -3,7 +3,7 @@ import time
 from config import my_user_agent, my_client_id, my_client_secret, my_username, my_password, blacklist
 
 
-class RogueOneBot(object):
+class DeveloperNotDevloper(object):
     def __init__(self):
         self.is_running = True
         self.user_agent = my_user_agent
@@ -17,7 +17,7 @@ class RogueOneBot(object):
                                   client_secret=self.client_secret,
                                   username=self.username,
                                   password=self.password)
-        self.sw_subreddits = self.reddit.subreddit("PrequelMemes+SequelMemes+OTMemes+anthologymemes+bankingclanmemes+TradeFederationMemes")
+        self.sw_subreddits = self.reddit.subreddit("Programming+Python+ProgrammingHumor+learnpython+learnprogramming+dailyprogrammer+test")
         self.comment_stream = self.sw_subreddits.stream.comments()
 
     def run(self):
@@ -30,7 +30,7 @@ class RogueOneBot(object):
 
             comment_lower = comment.body.lower()
 
-            if "rouge one" in comment_lower and "rogue one" not in comment_lower:
+            if "devloper" in comment_lower and "developer" not in comment_lower:
                 already_replied = False
                 comment.refresh()
                 for reply in comment.replies:
@@ -46,11 +46,11 @@ class RogueOneBot(object):
         author = "/u/" + comment.author.name
         message = ('###[\*sad beep\*](http://i.imgur.com/ISeTC4b.gifv)\n\n' +
                    '---\n\n' +
-                   'Hi, ', author, ', I noticed you typed "Rouge One". The correct spelling is "Rogue One".\n\n' +
-                   'May the force be with you!\n\n' +
+                   'Hi, ', author, ', I noticed you typed "devloper". The correct spelling is "developer".\n\n' +
+                   'Please don\'t do that!\n\n' +
                    '---\n\n' +
-                   '^I\'m ^just ^a ^hard ^working ^droid ^created ^by ^/u/BlckJesus ^| ' +
-                   '[^Github ^Link](https://github.com/phil-harmoniq/RogueOneBot)')
+                   '^I\'m ^just ^a ^hard ^working ^droid ^created ^by ^/u/BlckJesus and forked by OverOverOverlord ^| ' +
+                   '[^Github ^Link](https://github.com/billpapadimas/DeveloperNotDevloper)')
         message = "".join(message)
 
         print()

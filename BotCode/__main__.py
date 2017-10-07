@@ -1,4 +1,4 @@
-from bot import RogueOneBot
+from bot import DeveloperNotDevloper
 import time
 
 bot_count = 0
@@ -12,7 +12,7 @@ def new_bot(bot_count):
     
     # Pokemon Exception Handling - Gotta catch 'em all!
     try:
-        bot = RogueOneBot()
+        bot = DeveloperNotDevloper()
         bot.run()
     except Exception as e:
         print(e)
